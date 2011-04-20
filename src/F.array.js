@@ -1,8 +1,8 @@
 /** 
- *           File:  F.array.js
+ *           File:  src\F.array.js
  *         Author:  Feng Weifeng(jpssff@gmail.com)
  *       Modifier:  Feng Weifeng(jpssff@gmail.com)
- *       Modified:  2011-04-20 13:19:41  
+ *       Modified:  2011-04-20 16:13:15  
  *    Description:  数组相关操作
  *      Copyright:  (c) 2011-2021 wifeng.cn
  */
@@ -21,7 +21,6 @@ F.array.map = function(arr, fn, opt_obj) {
 	if (arr.map) {
 		return arr.map(fn, opt_obj);
 	}
-
 	var l = arr.length;
 	var res = [];
 	var resLength = 0;
@@ -42,16 +41,15 @@ F.array.map = function(arr, fn, opt_obj) {
 */
 F.array.each = function(arr, fn, opt_obj) {
 	if (arr.forEach) {
-		arr.forEach(fn, opt_obj);
-	} else {
-		var r, item, i, len = arr.length;
-		if ('function' == typeof fn) {
-			for (i = 0; i < len; i++) {
-				item = arr[i];
-				r = fn.call(opt_obj, item, i);
-				if (r === false) {
-					break;
-				}
+		return arr.forEach(fn, opt_obj);
+	}
+	var r, item, i, len = arr.length;
+	if ('function' == typeof fn) {
+		for (i = 0; i < len; i++) {
+			item = arr[i];
+			r = fn.call(opt_obj, item, i);
+			if (r === false) {
+				break;
 			}
 		}
 	}
