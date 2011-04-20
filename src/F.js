@@ -80,8 +80,8 @@ F.require = function(name) {
 F.inherits = function(fn, parentFn) {
 	function tempFn() {};
 	tempFn.prototype = parentFn.prototype;
-	childCtor._superClass = parentFn.prototype;
-	childCtor.prototype = new tempFn();
-	childCtor.prototype.constructor = fn;
+	fn._superClass = parentFn.prototype;
+	fn.prototype = new tempFn();
+	fn.prototype.constructor = fn;
 };
 
