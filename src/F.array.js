@@ -37,7 +37,6 @@ F.array.map = function(arr, fn, opt_obj) {
 * @param {Array} arr 需要遍历的数组
 * @param {Function} fn 遍历执行的函数
 * @param {Object} opt_obj fn中的this指针
-* @return {Array} 返回传入的数组
 */
 F.array.each = function(arr, fn, opt_obj) {
 	if (arr.forEach) {
@@ -53,6 +52,5 @@ F.array.each = function(arr, fn, opt_obj) {
 			}
 		}
 	}
-	return arr;
 };
 
