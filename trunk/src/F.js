@@ -74,3 +74,14 @@ F.require = function(name) {
 	}
 };
 
+/** 
+* 模拟继承，子类可以使用_superClass找到父类
+*/
+F.inherits = function(fn, parentFn) {
+	function tempFn() {};
+	tempFn.prototype = parentFn.prototype;
+	childCtor._superClass = parentFn.prototype;
+	childCtor.prototype = new tempFn();
+	childCtor.prototype.constructor = fn;
+};
+
