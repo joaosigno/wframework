@@ -21,6 +21,14 @@
                     ok(F.xxx.yyy, 'F.xxx.yyy 已被定义');
                     ok(window.xxx, 'window.xxx已被定义');
                     ok(window.xxx.yyy, 'window.xxx.yyy已被定义');
+
+
+                    function a1(){}
+                    a1.prototype.m = function(){return 1;}
+                    function a2(){}
+
+                    F.inherits(a2, a1);
+                    equals(new a2().m(), 1, '通过继承来的方法');
                 });
 
                 module('F.array');
