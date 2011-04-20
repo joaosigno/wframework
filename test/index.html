@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <script src="qunit/jquery.js"></script>
+        <link rel="stylesheet" href="qunit/qunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="qunit/qunit.js"></script>
+
+        <script src="../src/F.js" type="text/javascript"></script>
+        <script src="../src/F.array.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+
+                module('F');
+                test('F.namespace', function() {
+                    F.namespace('F.xxx.yyy');
+                    F.namespace('xxx.yyy');
+
+                    ok(F.xxx, 'F.xxx 已被定义');
+                    ok(F.xxx.yyy, 'F.xxx.yyy 已被定义');
+                    ok(window.xxx, 'window.xxx已被定义');
+                    ok(window.xxx.yyy, 'window.xxx.yyy已被定义');
+                });
+
+                module('F.array');
+                test('F.array.map', function(){
+                    var a = [2,3,4];
+                    var b = F.array.map(a, function(v){
+                        return v * v;
+                    });
+
+                    same(b, [4,9,16], 'map，返回 x*x');
+                });
+
+                test('F.array.each', function(){
+                    var a = [1,2,3,4];
+                    var x = 0;
+                    F.array.each(a, function(v){
+                        x += v;
+                    });
+
+                    equals(x, 10, '做了个加法');
+                });
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <h1 id="qunit-header">F Test By Qunit</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture">test markup, will be hidden</div>
+    </body>
+</html>
+
