@@ -1,11 +1,12 @@
 /** 
- *           File:  src\F.js
+ *           File:  F.js
  *         Author:  Feng Weifeng(jpssff@gmail.com)
  *       Modifier:  Feng Weifeng(jpssff@gmail.com)
- *       Modified:  2011-04-20 16:16:57  
+ *       Modified:  2011-04-21 10:09:19  
  *    Description:  F框架主文件
  *      Copyright:  (c) 2011-2021 wifeng.cn
  */
+
 /**
 * 参数命名规范：
 * 1、按照类型命名
